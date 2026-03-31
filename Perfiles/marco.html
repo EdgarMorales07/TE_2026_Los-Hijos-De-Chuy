@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/pico.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header id="header-container" class="container"></header>
+    <main class="container">
+        <h1>Marco</h1>
+        <img src="/recursos/marco.png" alt="Foto de perfil"
+            style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc; object-position: 50% 10%;">
+        <h3 style="margin-top: 20px;">Tecnologías y Herramientas</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+
+            <span
+                style="background-color: #f0f0f0; color: #333; padding: 8px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default; transition: 0.3s;">
+                JavaScript
+            </span>
+
+            <span
+                style="background-color: #f0f0f0; color: #333; padding: 8px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default;">
+                Linux
+            </span>
+
+            <span
+                style="background-color: #f0f0f0; color: #333; padding: 8px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default;">
+                Java
+            </span>
+
+            <span
+                style="background-color: #f0f0f0; color: #333; padding: 8px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default;">
+                Cisco Networking
+            </span>
+
+            <span
+                style="background-color: #f0f0f0; color: #333; padding: 8px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default;">
+                Node
+            </span>
+
+        </div>
+    </main>
+
+    <script>
+        fetch('/barra-navegacion.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
+
+</body>
+
+</html>

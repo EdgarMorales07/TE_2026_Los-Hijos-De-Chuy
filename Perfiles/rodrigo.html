@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/pico.min.css">
+    <link rel="shortcut icon" href="../recursos/logo.png" type="image/x-icon">
+    <title>SCRUM TEAM</title>
+</head>
+
+<body>
+    <header id="header-container" class="container"></header>
+    <main class="container">
+        <div class="grid">
+            <article style="max-width: 700px;">
+                <div class="grid" style="align-items: center;">
+                    <div style="display: flex;">
+                        <img src="/recursos/rodrigo.png"
+                            style="border-radius: 10px; width: 100%; max-width: 300px; height: auto;">
+                    </div>
+                    <div>
+                        <hgroup>
+                            <h1>Rodrigo</h1>
+                            <h2 style="padding: 2%;">Desarrollador web</h2>
+                        </hgroup>
+
+                        <p>
+                            <strong>Semestre actual:</strong> <br>
+                            <ins>Noveno Semestre</ins>
+                        </p>
+                        <hr>
+
+                        <h4 style="text-align: center;">Mis tecnologías favoritas</h4>
+                        <div style="text-align: center;">
+                            <span
+                                style="background-color: #f0f0f0; color: #333; padding: 1.5px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default; transition: 0.3s;">
+                                JavaScript
+                            </span>
+
+                            <span
+                                style="background-color: #f0f0f0; color: #333; padding: 1.5px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default;">
+                                Dart
+                            </span>
+
+                            <span
+                                style="background-color: #f0f0f0; color: #333; padding: 1.5px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default;">
+                                Flutter
+                            </span>
+
+                            <span
+                                style="background-color: #f0f0f0; color: #333; padding: 1.5px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default;">
+                                Python
+                            </span>
+
+                            <span
+                                style="background-color: #f0f0f0; color: #333; padding: 1.5px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default;">
+                                C++
+                            </span>
+
+                            <span
+                                style="background-color: #f0f0f0; color: #333; padding: 1.5px 16px; border-radius: 20px; font-family: sans-serif; font-size: 14px; font-weight: bold; border: 1px solid #ddd; cursor: default;">
+                                Java
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article style="max-width: 500px;">
+                <h3>Hobbies</h3>
+                <p>
+                    Me gusta escuchar música, programar, dibujar y modelar en 3D. También disfruto jugar videojuegos, cocinar y salir a pasear con mis perros. <br>
+                </p>
+                <h3>Redes Sociales</h3>
+                <h4>GitHub:</h4>
+                <ul>
+
+                    <li>https://github.com/RodrigoGutiGud</li>
+                </ul>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        fetch('/barra-navegacion.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
+
+</body>
+
+</html>

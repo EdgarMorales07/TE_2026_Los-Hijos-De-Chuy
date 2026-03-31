@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/pico.min.css">
+    <link rel="shortcut icon" href="recursos/logo.png" type="image/x-icon">
     <title>Patrones de diseño</title>
 </head>
 
 <body>
-
+    <header id="header-container"></header>
     <main class="container" style="text-align: justify;">
         <h1>Patrones de Diseño</h1>
         <p>Los patrones de diseño son soluciones reutilizables y probadas a problemas comunes en el diseño de software.
@@ -19,75 +20,94 @@
 
             Estos patrones actúan como un lenguaje común entre desarrolladores, facilitando la comunicación y
             comprensión del diseño de sistemas. Fueron formalizados en 1994 por el Gang of Four (GoF) en el libro Design
-            Patterns: Elements of Reusable Object-Oriented Software, y se clasifican en tres categorías principales: <br>
+            Patterns: Elements of Reusable Object-Oriented Software, y se clasifican en tres categorías principales:
+            <br>
 
             Patrones creacionales: Se enfocan en cómo crear objetos de forma flexible (por ejemplo, Singleton, Factory
             Method). <br>
-            <ul>
-                <li>
-                    Patrones estructurales: Tratan cómo componer clases y objetos para formar estructuras más complejas (por
-            ejemplo, Adapter, Decorator).
-                </li>
-                <li>
-                    Patrones de comportamiento: Definen cómo los objetos se comunican y distribuyen responsabilidades (por
-            ejemplo, Observer, Strategy).
-                </li>
-            </ul> 
-             </p>
+        <ul>
+            <li>
+                Patrones estructurales: Tratan cómo componer clases y objetos para formar estructuras más complejas (por
+                ejemplo, Adapter, Decorator).
+            </li>
+            <li>
+                Patrones de comportamiento: Definen cómo los objetos se comunican y distribuyen responsabilidades (por
+                ejemplo, Observer, Strategy).
+            </li>
+        </ul>
+        </p>
     </main>
 
     <div class="container">
-        <h2>Patrones Creacionales</h2>
+        <h2>Patrones Más Comunes</h2>
         <hr>
-        <h3>Singleton</h3>
-        <p>Construye objetos complejos paso a paso <br>
+
+        <h3>Builder</h3>
+        <p>Permite construir objetos complejos paso a paso, separando la construcción de la representación final.<br>
             Se usa cuando: <br>
         <ul>
-            <li>Un objeto tiene muchas partes o configuraciones</li>
-            <li>No quieres un constructor gigante lleno de parámetros </li>
-            <li>No quieres un constructor gigante lleno de parámetros </li>
+            <li>Un objeto tiene muchas partes o configuraciones opcionales.</li>
+            <li>Quieres evitar "constructores telescópicos" (con demasiados parámetros).</li>
+            <li>Necesitas que el mismo proceso de construcción cree diferentes representaciones.</li>
         </ul>
         Idea: <br>
         <pre><code>
-            Usuario user = new UsuarioBuilder()
-            .setNombre("Marco")
-            .setEdad(22)
-            .build();
-            </code></pre>
-        Separas cómo se construye del objeto final
+Usuario user = new UsuarioBuilder()
+    .setNombre("Marck")
+    .setRol("Admin")
+    .setActivo(true)
+    .build();
+</code></pre>
+        <strong>Ventaja:</strong> Código mucho más legible y flexible.<br>
+        <strong>Sin él:</strong> Constructores gigantes y difíciles de mantener.</p>
 
-        Ventaja: legible y flexible
-        Sin él: constructores horribles</p>
-        <h3>Builder</h3>
-        <h3>Factory</h3>
-        <h3>Abstract</h3>
-        <h3>Prototype</h3>
-        
-        <h2>Patrones Estructurales</h2>
         <hr>
-        <h3>Adapter</h3>
-        <h3>Bridge</h3>
-        <h3>Composite</h3>
-        <h3>Decorator</h3>
-        <h3>Facade</h3>
-        <h3>Flyweight</h3>
-        <h3>Proxy</h3>
-        
-        <h2>Patrones de Comportamiento</h2>
+
+        <h3>Singleton</h3>
+        <p>Garantiza que una clase tenga una **única instancia** en toda la aplicación y proporciona un punto de acceso
+            global a ella.<br>
+            Se usa cuando: <br>
+        <ul>
+            <li>Necesitas controlar el acceso a un recurso compartido (como una Base de Datos).</li>
+            <li>Quieres evitar crear múltiples conexiones pesadas innecesariamente.</li>
+            <li>Manejas configuraciones globales del sistema.</li>
+        </ul>
+        Idea: <br>
+        <pre><code>
+Configuracion config = Configuracion.getInstance();
+config.getPuerto();
+</code></pre>
+        <strong>Ventaja:</strong> Ahorro de memoria y control centralizado.<br>
+        <strong>Sin él:</strong> Varias instancias desperdiciando recursos o creando conflictos de datos.</p>
+
         <hr>
-        <h3>Chain of responsability</h3>
-        <h3>Command</h3>
-        <h3>Interpreter</h3>
-        <h3>Iterator</h3>
-        <h3>Madiator</h3>
-        <h3>Memento</h3>
-        <h3>Observer</h3>
-        <h3>State</h3>
-        <h3>Strategy</h3>
-        <h3>Template Method</h3>
-        <h3>Visitor</h3>
+
+        <h3>Factory Method</h3>
+        <p>Proporciona una interfaz para crear objetos, pero permite a las subclases decidir qué clase instanciar.<br>
+            Se usa cuando: <br>
+        <ul>
+            <li>Tu código no sabe de antemano los tipos exactos de objetos con los que trabajará.</li>
+            <li>Quieres desacoplar la creación de los objetos de su uso.</li>
+            <li>Deseas extender la librería o framework fácilmente.</li>
+        </ul>
+        Idea: <br>
+        <pre><code>
+// La fábrica decide si entrega un Círculo o un Cuadrado
+Figura fig = FiguraFactory.crear("Circulo");
+fig.dibujar();
+</code></pre>
+        <strong>Ventaja:</strong> Cumple con el principio de "abierto para extensión, cerrado para modificación".<br>
+        <strong>Sin él:</strong> Tu código estaría lleno de "if/else" o "switch" cada vez que necesites un objeto nuevo.
+        </p>
+
     </div>
 
+    <script>
+        fetch('barra-navegacion.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
 </body>
-
 </html>
